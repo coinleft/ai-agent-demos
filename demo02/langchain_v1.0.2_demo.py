@@ -4,13 +4,13 @@ from langchain.agents import create_agent
 from dotenv import load_dotenv
 load_dotenv()
 
-def get_weathe_tool(city: str) -> str:
+def get_weather_tool(city: str) -> str:
     """Get weather for a given city."""
     return f"It's always sunny in {city}!"
 
 agent = create_agent(
     model="deepseek-chat",
-    tools=[get_weathe_tool],
+    tools=[get_weather_tool],
     system_prompt="You are a helpful assistant",
     response_format=None
 )
@@ -77,4 +77,4 @@ def format_agent_response(raw_response):
 formatted_result = format_agent_response(raw_response)
 
 print(formatted_result)
-# {'user_question': 'what is the weather in sf', 'final_answer': "According to the weather information, it's always sunny in San Francisco! While this might be a simplified response from the weather service, San Francisco is indeed known for having many pleasant, sunny days throughout the year, especially during certain seasons. However, it's worth noting that SF also experiences its famous fog, particularly in summer months, and can have quite variable microclimates across different neighborhoods.", 'tool_calls': [{'name': 'get_weathe_tool', 'args': {'city': 'San Francisco'}, 'id': 'call_00_EPd9jFJpyREUBH93gUbukkGU', 'result': "It's always sunny in San Francisco!"}], 'token_usage': {'completion_tokens': 79, 'prompt_tokens': 201, 'total_tokens': 280, 'completion_tokens_details': None, 'prompt_tokens_details': {'audio_tokens': None, 'cached_tokens': 192}, 'prompt_cache_hit_tokens': 192, 'prompt_cache_miss_tokens': 9}}
+# {'user_question': 'what is the weather in sf', 'final_answer': "According to the weather information, it's always sunny in San Francisco!", 'tool_calls': [{'name': 'get_weathe_tool', 'args': {'city': 'San Francisco'}, 'id': 'call_00_VZVq95cEuhU8b5ZeWQOMNwjv', 'result': "It's always sunny in San Francisco!"}], 'token_usage': {'completion_tokens': 14, 'prompt_tokens': 201, 'total_tokens': 215, 'completion_tokens_details': None, 'prompt_tokens_details': {'audio_tokens': None, 'cached_tokens': 128}, 'prompt_cache_hit_tokens': 128, 'prompt_cache_miss_tokens': 73}}

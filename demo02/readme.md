@@ -1,7 +1,6 @@
-# 参考链接
-https://reference.langchain.com/python/langchain/langchain/
 
-langchain 目前包含6大模块
+
+# Langchain(v1.0.2)
 
 ## 1. Agents
 
@@ -20,11 +19,17 @@ middleware: A sequence of middleware instances to apply to the agent. Middleware
 
 response_format: An optional configuration for structured responses. Can be a ToolStrategy, ProviderStrategy, or a Pydantic model class. If provided, the agent will handle structured output during the conversation flow. Raw schemas will be wrapped in an appropriate strategy based on model capabilities.
 
-等.
+### Models
+### Messages
+### Tools
+### Short-term memory
+### Streaming
+### Middleware
+### Structured output
 
-- Middleware
-- Models
-- Messages
-- Tools
-- Embeddings
 
+
+
+## 参考链接
+https://docs.langchain.com/oss/python/langchain/overview
+https://reference.langchain.com/python/langchain/langchain/
