@@ -1,5 +1,6 @@
 from langchain.messages import HumanMessage, AIMessage, ToolMessage
 from langchain.agents import create_agent
+from langchain.chat_models import init_chat_model
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -9,7 +10,7 @@ def get_weather_tool(city: str) -> str:
     return f"It's always sunny in {city}!"
 
 agent = create_agent(
-    model="deepseek-chat",
+    model="deepseek-chat",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     tools=[get_weather_tool],
     system_prompt="You are a helpful assistant",
     response_format=None
