@@ -65,6 +65,9 @@ agent = create_agent(
 
 question = "Which table has the largest number of entries?"
 msg = {"messages": [{"role": "user", "content": question}]}
+
+# Stream mode values 按每个步骤输出message
+
 for step in agent.stream(
     msg,
     context=RuntimeContext(db=db),
@@ -72,6 +75,17 @@ for step in agent.stream(
 ):
     # print(step["messages"][-1])
     step["messages"][-1].pretty_print()
+
+
+
+# Stream mode messages 按token逐个输出
+
+# for token, metadata in agent.stream(
+#     msg,
+#     context=RuntimeContext(db=db),
+#     stream_mode="messages",
+# ):
+#     print(f'{token.content}', end='')
 
 
 
