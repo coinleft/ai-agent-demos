@@ -45,3 +45,4 @@ class GetPopulation(BaseModel):
 model_with_tools = model.bind_tools([GetWeather, GetPopulation])
 ai_msg = model_with_tools.invoke("Which city is hotter today and which is bigger: LA or NY?")
 print(ai_msg)
+
