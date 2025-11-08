@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from dotenv import load_dotenv
 load_dotenv()
 
-db = SQLDatabase.from_uri("sqlite:///Chinook.db")
+db = SQLDatabase.from_uri("sqlite:///../assets/Chinook.db")
 
 # define context structure to support dependency injection
 
