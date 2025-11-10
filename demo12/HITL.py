@@ -7,7 +7,6 @@ db = SQLDatabase.from_uri("sqlite:///../assets/Chinook.db")
 
 from dataclasses import dataclass
 
-
 @dataclass
 class RuntimeContext:
     db: SQLDatabase
