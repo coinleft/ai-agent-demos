@@ -1,16 +1,26 @@
 from langchain.messages import HumanMessage, AIMessage, ToolMessage
 from langchain.agents import create_agent
 from langchain.chat_models import init_chat_model
+from langchain_openai import ChatOpenAI
+
+import os
 
 from dotenv import load_dotenv
 load_dotenv()
+
+model = ChatOpenAI(
+    api_key=os.getenv("DASHSCOPE_API_KEY"),
+    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
+    model="qwen-max",  # 模型列表：https://help.aliyun.com/zh/model-studio/getting-started/models
+    # other params...
+)
 
 def get_weather_tool(city: str) -> str:
     """Get weather for a given city."""
     return f"It's always sunny in {city}!"
 
 agent = create_agent(
-    model="deepseek-chat",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    model=model,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     tools=[get_weather_tool],
     system_prompt="You are a helpful assistant",
     response_format=None
